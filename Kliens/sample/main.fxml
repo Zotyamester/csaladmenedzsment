@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MainController">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane fx:id="parent" prefHeight="560.0" prefWidth="784.0" GridPane.columnIndex="1">
+         <children>
+            <ImageView fx:id="background" fitHeight="560.0" fitWidth="794.0" layoutX="-10.0">
+               <image>
+                  <Image url="@gradient.jpg" />
+               </image>
+            </ImageView>
+            <Button id="minibutton" fx:id="minimizeButton" layoutX="715.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#minimizeStage" prefHeight="25.0" prefWidth="24.0" stylesheets="@style.css" text="-" textAlignment="CENTER" textFill="WHITE" />
+            <Button id="minibutton" fx:id="closeButton" layoutX="746.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#closeApp" stylesheets="@style.css" text="X" textAlignment="CENTER" textFill="WHITE" />
+             <AnchorPane fx:id="loginPane" layoutX="190.0" layoutY="75.0" prefHeight="410.0" prefWidth="410.0" style="-fx-background-color: #212121FF;">
+                 <children>
+                     <Label fx:id="loginLabel" layoutX="79.0" layoutY="42.0" text="Bejelentkezés" textFill="WHITE">
+                         <font>
+                             <Font name="Tahoma Bold" size="36.0" />
+                         </font>
+                     </Label>
+                     <AnchorPane fx:id="loginBar" layoutX="106.0" layoutY="97.0" prefHeight="8.0" prefWidth="200.0" style="-fx-background-color: #76FF03FF;" />
+                     <TextField fx:id="lUnameField" layoutX="115.0" layoutY="133.0" prefHeight="25.0" prefWidth="185.0" promptText="Felhasználónév" />
+                     <PasswordField fx:id="lPasswField" layoutX="115.0" layoutY="173.0" prefHeight="25.0" prefWidth="185.0" promptText="Jelszó" />
+                     <Button id="button" fx:id="loginButton" layoutX="97.0" layoutY="237.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="59.0" prefWidth="221.0" stylesheets="@style.css" text="Bejelentkezés" textAlignment="CENTER" textFill="WHITE">
+                         <font>
+                             <Font name="Tahoma Bold" size="18.0" />
+                         </font>
+                     </Button>
+                     <Hyperlink fx:id="registrationLink" layoutX="172.0" layoutY="326.0" onMouseClicked="#goToRegistration" text="Regisztráció" textFill="#40a5c9" visited="true" />
+                     <Hyperlink fx:id="resetPasswLink" layoutX="153.0" layoutY="357.0" onMouseClicked="#goToResetPassw" text="Jelszó visszaállítása" textFill="#40a5c9" visited="true" />
+                 </children>
+             </AnchorPane>
+            <AnchorPane fx:id="registrationPane" layoutX="190.0" layoutY="75.0" prefHeight="410.0" prefWidth="410.0" style="-fx-background-color: #212121FF;" visible="false">
+               <children>
+                  <ImageView fx:id="backButton1" fitHeight="25.0" fitWidth="143.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#goBackFromRegistration" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="registrationLabel" layoutX="96.0" layoutY="42.0" text="Regisztráció" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane fx:id="registrationBar" layoutX="106.0" layoutY="97.0" prefHeight="8.0" prefWidth="200.0" style="-fx-background-color: #76FF03FF;" />
+                  <TextField fx:id="rEmailField" layoutX="115.0" layoutY="124.0" prefHeight="25.0" prefWidth="185.0" promptText="E-Mail" />
+                  <TextField fx:id="rUnameField" layoutX="115.0" layoutY="164.0" prefHeight="25.0" prefWidth="185.0" promptText="Felhasználónév" />
+                  <PasswordField fx:id="rPasswField" layoutX="115.0" layoutY="204.0" prefHeight="25.0" prefWidth="185.0" promptText="Jelszó" />
+                  <TextField fx:id="rFirstnameField" layoutX="114.0" layoutY="244.0" prefHeight="25.0" prefWidth="185.0" promptText="Keresztnév" />
+                  <TextField fx:id="rLastnameField" layoutX="115.0" layoutY="284.0" prefHeight="25.0" prefWidth="185.0" promptText="Vezetéknév" />
+                  <Button id="button" fx:id="registerButton" layoutX="97.0" layoutY="328.0" mnemonicParsing="false" onMouseClicked="#register" prefHeight="59.0" prefWidth="221.0" stylesheets="@style.css" text="Regisztrálás" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="resetPasswPane" layoutX="190.0" layoutY="75.0" prefHeight="410.0" prefWidth="410.0" style="-fx-background-color: #212121FF;" visible="false">
+               <children>
+                  <ImageView fx:id="backButton2" fitHeight="25.0" fitWidth="143.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#goBackFromResetPassw" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="resetPasswLabel" layoutX="27.0" layoutY="42.0" text="Jelszó visszaállítása" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <AnchorPane fx:id="resetPasswBar" layoutX="106.0" layoutY="97.0" prefHeight="8.0" prefWidth="200.0" style="-fx-background-color: #76FF03FF;" />
+                  <TextField fx:id="rpEmailField" layoutX="115.0" layoutY="170.0" prefHeight="25.0" prefWidth="185.0" promptText="E-Mail" />
+                  <Button id="button" fx:id="resetPasswButton" layoutX="97.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="59.0" prefWidth="221.0" stylesheets="@style.css" text="E-Mail küldése" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="createFamilyPane" layoutX="20.0" layoutY="75.0" prefHeight="435.0" prefWidth="735.0" style="-fx-background-color: #212121FF;" visible="false">
+               <children>
+                  <Label fx:id="createFamilyLabel" layoutX="236.0" layoutY="34.0" text="Család létrehozása" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cfNameField" layoutX="81.0" layoutY="135.0" prefHeight="25.0" prefWidth="571.0" promptText="Név" />
+                  <Button id="button" fx:id="createFamilyButton" layoutX="81.0" layoutY="190.0" mnemonicParsing="false" onMouseClicked="#createFamily" prefHeight="25.0" prefWidth="571.0" stylesheets="@style.css" text="Létrehozás" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="askFamilyLabel" layoutX="31.0" layoutY="294.0" text="Vagy kérje meg családját, hogy vegye fel Önt is!" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <TabPane id="tabpane" fx:id="mainTabPane" layoutX="11.0" layoutY="55.0" prefHeight="491.0" prefWidth="753.0" side="LEFT" stylesheets="@style.css" tabClosingPolicy="UNAVAILABLE" visible="false">
+              <tabs>
+                <Tab fx:id="homeTab" onSelectionChanged="#fetchHome" text="Kezdőlap">
+                  <content>
+                    <AnchorPane fx:id="home" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="689.0" style="-fx-background-color: #212121FF;">
+                           <children>
+                              <Label fx:id="tabHelloLabel" layoutX="14.0" layoutY="15.0" text="Üdv, Vezetéknév Keresztnév!" textFill="WHITE">
+                                 <font>
+                                    <Font size="43.0" />
+                                 </font>
+                              </Label>
+                              <Button id="button" fx:id="removeFamilyButton" layoutX="25.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#removeFamily" prefHeight="25.0" prefWidth="34.0" stylesheets="@style.css" text="X">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Label fx:id="tabFamilyLabel" layoutX="77.0" layoutY="80.0" text="XY család" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TableView id="tableView" fx:id="familyMembersTable" layoutX="14.0" layoutY="124.0" prefHeight="303.0" prefWidth="660.0" stylesheets="@style.css">
+                                <columns>
+                                    <TableColumn fx:id="emailCol" prefWidth="165.0" resizable="false" text="E-Mail" />
+                                  <TableColumn fx:id="unameCol" prefWidth="165.0" resizable="false" text="Felhasználónév" />
+                                  <TableColumn fx:id="firstnameCol" prefWidth="165.0" resizable="false" text="Keresztnév" />
+                                    <TableColumn fx:id="lastnameCol" prefWidth="165.0" resizable="false" text="Vezetéknév" />
+                                </columns>
+                              </TableView>
+                              <TextField fx:id="arUserField" layoutX="111.0" layoutY="438.0" />
+                              <Button id="button" fx:id="addUser" layoutX="270.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#addUser" prefHeight="25.0" prefWidth="34.0" stylesheets="@style.css" text="+">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font></Button>
+                              <Button id="button" fx:id="removeUser" layoutX="310.0" layoutY="438.0" mnemonicParsing="false" onMouseClicked="#removeUser" prefHeight="25.0" prefWidth="35.0" stylesheets="@style.css" text="-">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font></Button>
+                              <Label fx:id="unameLabel" layoutX="14.0" layoutY="443.0" prefHeight="17.0" prefWidth="83.0" text="Felhasználónév:" textAlignment="CENTER" textFill="WHITE" />
+                              <Label fx:id="arUserStatusLabel" layoutX="366.0" layoutY="443.0" textAlignment="CENTER" textFill="WHITE" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab fx:id="postsTab" onSelectionChanged="#fetchPosts" text="Bejegyzések">
+                  <content>
+                    <AnchorPane fx:id="posts" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #212121FF;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="15.0" text="Bejegyzések" textFill="WHITE">
+                                 <font>
+                                    <Font size="43.0" />
+                                 </font>
+                              </Label>
+                              <ScrollPane layoutX="14.0" layoutY="100.0" prefHeight="370.0" prefWidth="660.0">
+                                 <content>
+                                    <VBox fx:id="postsFeed" maxHeight="1.7976931348623157E308" prefHeight="370.0" prefWidth="645.0" />
+                                 </content>
+                              </ScrollPane>
+                              <Button id="button" fx:id="addPost" layoutX="255.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#goToCreatePost" prefHeight="25.0" prefWidth="34.0" stylesheets="@style.css" text="+">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button id="button" fx:id="removePost" layoutX="295.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#goToRemovePost" prefHeight="25.0" prefWidth="34.0" stylesheets="@style.css" text="-">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab fx:id="tasksTab" onSelectionChanged="#fetchTasks" text="Feladatok">
+                     <content>
+                        <AnchorPane fx:id="tasks" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #212121FF;">
+                           <children>
+                              <ScrollPane layoutX="14.0" layoutY="100.0" prefHeight="370.0" prefWidth="660.0">
+                                 <content>
+                                    <VBox fx:id="tasksFeed" prefHeight="370.0" prefWidth="645.0" />
+                                 </content>
+                              </ScrollPane>
+                              <Label layoutX="14.0" layoutY="15.0" text="Feladatok" textFill="WHITE">
+                                 <font>
+                                    <Font size="43.0" />
+                                 </font>
+                              </Label>
+                              <Button id="button" fx:id="addTask" layoutX="210.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#goToCreateTask" prefHeight="25.0" prefWidth="34.0" stylesheets="@style.css" text="+">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button id="button" fx:id="removeTask" layoutX="250.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#goToRemoveTask" prefHeight="25.0" prefWidth="34.0" stylesheets="@style.css" text="-">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="shoppingListTab" onSelectionChanged="#fetchShoppingList" text="Bevásárlólista">
+                     <content>
+                        <AnchorPane fx:id="shoppingList" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #212121FF;">
+                           <children>
+                              <Label layoutX="14.0" layoutY="15.0" text="Bevásárlólista" textFill="WHITE">
+                                 <font>
+                                    <Font size="43.0" />
+                                 </font>
+                              </Label>
+                              <TableView id="tableView" fx:id="shoppingListTable" layoutX="14.0" layoutY="100.0" prefHeight="370.0" prefWidth="660.0" stylesheets="@style.css">
+                                 <columns>
+                                    <TableColumn fx:id="idCol" prefWidth="165.0" resizable="false" text="Id" />
+                                    <TableColumn fx:id="inameCol" prefWidth="165.0" resizable="false" text="Név" />
+                                    <TableColumn fx:id="quantityCol" prefWidth="165.0" resizable="false" text="Mennyiség" />
+                                    <TableColumn fx:id="unitCol" prefWidth="165.0" resizable="false" text="Mértékegység" />
+                                 </columns>
+                              </TableView>
+                              <Button id="button" fx:id="addListItem" layoutX="280.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#goToCreateListItem" prefHeight="25.0" prefWidth="34.0" stylesheets="@style.css" text="+">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button id="button" fx:id="removeListItem" layoutX="320.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#goToRemoveListItem" prefHeight="25.0" prefWidth="34.0" stylesheets="@style.css" text="-">
+                                 <font>
+                                    <Font name="Tahoma" size="12.0" />
+                                 </font>
+                              </Button>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+            <ImageView fx:id="logoutButton" fitHeight="25.0" fitWidth="24.0" layoutX="37.0" layoutY="15.0" onMouseClicked="#logout" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@logout.png" />
+               </image>
+            </ImageView>
+            <AnchorPane fx:id="createPostPane" layoutX="11.0" layoutY="55.0" prefHeight="491.0" prefWidth="753.0" style="-fx-background-color: #212121FF;" visible="false">
+               <children>
+                  <ImageView fx:id="backButton3" fitHeight="25.0" fitWidth="143.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#goBackFromCreatePost" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="createPostLabel" layoutX="223.0" layoutY="34.0" text="Bejegyzés létrehozása" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cpTitleField" layoutX="91.0" layoutY="105.0" prefHeight="25.0" prefWidth="571.0" promptText="Cím" />
+                  <TextArea fx:id="cpBodyArea" layoutX="91.0" layoutY="146.0" prefHeight="200.0" prefWidth="571.0" promptText="Szövegtörzs" />
+                  <Button id="button" fx:id="createPostButton" layoutX="91.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#createPost" prefHeight="25.0" prefWidth="571.0" stylesheets="@style.css" text="Létrehozás" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="createTaskPane" layoutX="11.0" layoutY="55.0" prefHeight="491.0" prefWidth="753.0" style="-fx-background-color: #212121FF;" visible="false">
+               <children>
+                  <ImageView fx:id="backButton4" fitHeight="25.0" fitWidth="143.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#goBackFromCreateTask" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="createTaskLabel" layoutX="232.0" layoutY="34.0" text="Feladat létrehozása" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="ctTitleField" layoutX="91.0" layoutY="105.0" prefHeight="25.0" prefWidth="571.0" promptText="Cím" />
+                  <TextArea fx:id="ctDescriptionArea" layoutX="91.0" layoutY="149.0" prefHeight="134.0" prefWidth="571.0" promptText="Leírás" />
+                  <DatePicker fx:id="ctDeadlineDatePicker" layoutX="91.0" layoutY="309.0" prefHeight="35.0" prefWidth="571.0" promptText="Határidő" />
+                  <Button id="button" fx:id="createTaskButton" layoutX="91.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#createTask" prefHeight="25.0" prefWidth="571.0" stylesheets="@style.css" text="Létrehozás" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="createListItemPane" layoutX="11.0" layoutY="55.0" prefHeight="491.0" prefWidth="753.0" style="-fx-background-color: #212121FF;" visible="false">
+               <children>
+                  <ImageView fx:id="backButton5" fitHeight="25.0" fitWidth="143.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#goBackFromCreateListItem" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="createListItemLabel" layoutX="119.0" layoutY="34.0" text="Tétel hozzáadása a bevásárlólistához" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cliNameField" layoutX="91.0" layoutY="105.0" prefHeight="46.0" prefWidth="571.0" promptText="Név" />
+                  <TextField fx:id="cliQuantityField" layoutX="91.0" layoutY="195.0" prefHeight="46.0" prefWidth="571.0" promptText="Mennyiség" />
+                  <TextField fx:id="cliUnitField" layoutX="91.0" layoutY="285.0" prefHeight="46.0" prefWidth="571.0" promptText="Mértékegység" />
+                  <Button id="button" fx:id="createListItemButton" layoutX="91.0" layoutY="374.0" mnemonicParsing="false" onMouseClicked="#createListItem" prefHeight="25.0" prefWidth="571.0" stylesheets="@style.css" text="Hozzáadás" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="removeContentPane" layoutX="7.0" layoutY="55.0" prefHeight="491.0" prefWidth="759.0" style="-fx-background-color: #212121FF;" visible="false">
+               <children>
+                  <ImageView fx:id="backButton6" fitHeight="25.0" fitWidth="143.0" layoutX="15.0" layoutY="15.0" onMouseClicked="#goBackFromRemoveContent" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="removeContentLabel" layoutX="263.0" layoutY="34.0" text="Tartalom törlése" textAlignment="CENTER" textFill="WHITE">
+                     <font>
+                        <Font size="32.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="rcIdField" layoutX="91.0" layoutY="135.0" prefHeight="25.0" prefWidth="571.0" promptText="Azonosító" />
+                  <ChoiceBox fx:id="rcTypeChoiceBox" layoutX="91.0" layoutY="205.0" prefHeight="25.0" prefWidth="571.0">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="Bejegyzés" />
+                           <String fx:value="Feladat" />
+                           <String fx:value="Bevásárlólista tétel" />
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
+                  <Button id="button" fx:id="removeContentButton" layoutX="91.0" layoutY="275.0" mnemonicParsing="false" onMouseClicked="#removeContent" prefHeight="25.0" prefWidth="571.0" stylesheets="@style.css" text="Törlés" textFill="WHITE">
+                     <font>
+                        <Font name="Tahoma Bold" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+   </children>
+</GridPane>
